@@ -3,13 +3,16 @@ name = "lab5"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
+    "dbt-core==1.7.18",
+    "dbt-sqlserver==1.7.2",
     "dlt[parquet,postgres,sql]>=1.24.0",
     "pandas>=3.0.2",
     "psycopg[binary]>=3.3.3",
     "pyarrow>=23.0.1",
-    "pyodbc>=5.3.0",
+    "pyodbc<5.1",
     "sqlalchemy>=2.0.49",
     "tzdata>=2026.1",
 ]
+
