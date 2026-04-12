@@ -13,3 +13,7 @@ wheels/
 .dlt
 .dlt/secrets.toml
 
+# dlt runtime
+logs
+target
+.dbt/.user.yml
