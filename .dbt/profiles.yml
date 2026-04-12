@@ -1,0 +1,12 @@
+dbt_test_project:
+  target: dev
+  outputs:
+    dev:
+      type: sqlserver
+      driver: "ODBC Driver 17 for SQL Server"
+      server: <HOST_NAME>
+      database: AdventureWorks2025
+      schema: Test
+      windows_login: true
+      encrypt: true
+      trust_cert: true

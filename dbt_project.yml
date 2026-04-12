@@ -1,0 +1,9 @@
+name: dbt_test_project
+version: "1.0.0"
+
+profile: dbt_test_project
+
+model-paths: ["models"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
