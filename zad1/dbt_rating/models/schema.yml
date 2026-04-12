@@ -1,0 +1,56 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: "{{ env_var('DLT_DATASET_NAME', 'lab5_raw') }}"
+    tables:
+      - name: ratings
+      - name: product
+      - name: reviews
+
+models:
+  - name: stg_ratings
+    description: "Cleaned ratings loaded by dlt from CSV"
+    columns:
+      - name: review_id
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: product_rating_summary
+    description: "Average product ratings and review counts"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_product
+    description: "Cleaned product dimension loaded from AdventureWorks SQL Server"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_reviews
+    description: "Cleaned review facts loaded from CSV through skrypt.py"
+    columns:
+      - name: review_id
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        tests:
+          - not_null
+
+  - name: product_reviews_summary_mssql
+    description: "Product-level review summary based on stg_product and stg_reviews"
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
