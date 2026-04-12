@@ -9,4 +9,7 @@ wheels/
 # Virtual environments
 .venv
 
-*/secrets.toml
+# Change with your data!
+.dlt
+.dlt/secrets.toml
+
