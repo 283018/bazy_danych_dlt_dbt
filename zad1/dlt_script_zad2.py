@@ -83,9 +83,7 @@ def extract_reviews() -> pd.DataFrame:
     return df
 
 
-# ---------------------------------------------------------------------------
 # FETCHING KURSÓW
-# ---------------------------------------------------------------------------
 
 def fetch_nbp_rates(currency: str = CURRENCY, years: int = NBP_YEARS) -> pd.DataFrame:
     end_date = date.today()
