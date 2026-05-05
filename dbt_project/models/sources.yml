@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: extract
+    schema: extract
+    tables:
+      - name: product
+      - name: product_subcategory
+      - name: product_category
+      - name: product_cost_history
+      - name: salesperson
+      - name: sales_territory
+      - name: person
+      - name: country_region
+      - name: sales_order_header
+      - name: sales_order_detail
+      - name: ProductRating
+      - name: currency_rate_data
