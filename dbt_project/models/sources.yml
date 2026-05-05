@@ -14,5 +14,5 @@ sources:
       - name: country_region
       - name: sales_order_header
       - name: sales_order_detail
-      - name: ProductRating
+      - name: product_rating
       - name: currency_rate_data
