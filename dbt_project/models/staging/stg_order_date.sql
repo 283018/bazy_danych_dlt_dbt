@@ -24,18 +24,13 @@ dates as (
 
 select
     d as date_key,
-
     day(d) as day_of_month,
     datename(weekday, d) as day_name,
-
+    datepart(weekday, d) as day_of_week_number,
     month(d) as month_number,
     datename(month, d) as month_name,
-
     datepart(quarter, d) as quarter,
-
     case when month(d) <= 6 then 1 else 2 end as half_year,
     year(d) as year_number,
-
     case when datename(weekday, d) in ('Saturday', 'Sunday') then 1 else 0 end as is_weekend
-
 from dates;

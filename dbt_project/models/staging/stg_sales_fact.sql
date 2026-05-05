@@ -8,6 +8,11 @@ with detail as (
 header as (
     select *
     from {{ source('extract', 'sales_order_header') }}
+),
+
+currency as (
+    select *
+    from {{ ref('stg_currency_rate') }}
 )
 
 select
@@ -18,17 +23,28 @@ select
     h.sales_person_id,
     h.territory_id,
 
-    h.order_date,
-    h.ship_date,
+    cast(h.order_date as date) as order_date,
+    cast(h.ship_date as date) as ship_date,
 
     d.order_qty,
     d.unit_price,
     d.unit_price_discount,
     d.line_total,
 
-    -- basic derived metric
-    d.order_qty * d.unit_price as gross_value
+    cast(d.order_qty * d.unit_price as decimal(18,4)) as gross_value,
+
+    c.mid_rate,
+    c.rate_direction,
+
+    cast(
+        case
+            when c.mid_rate is null then null
+            else d.line_total * c.mid_rate
+        end as decimal(18,4)
+    ) as amount_pln
 
 from detail d
 left join header h
     on d.sales_order_id = h.sales_order_id
+left join currency c
+    on cast(h.order_date as date) = c.date_key;
