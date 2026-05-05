@@ -10,7 +10,7 @@ wheels/
 .venv
 
 # Change with your data!
-.dlt
+# .dlt
 # .dlt/secrets.toml
 
 # dlt runtime
