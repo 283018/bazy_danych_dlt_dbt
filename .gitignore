@@ -11,7 +11,7 @@ wheels/
 
 # Change with your data!
 # .dlt
-# .dlt/secrets.toml
+.dlt/secrets.toml
 
 # dlt runtime
 logs
