@@ -132,8 +132,8 @@ def fetch_nbp_rates(currency: str = CURRENCY, years: int = NBP_YEARS) -> pd.Data
 
 pipeline = dlt.pipeline(
     pipeline_name="adventureworks_star_extract",
-    destination="postgres",
-    dataset_name=TARGET_SCHEMA,    # tworzy scheme extracted 
+    destination="mssql",
+    dataset_name=TARGET_SCHEMA,
 )
 
 
