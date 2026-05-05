@@ -20,16 +20,17 @@ select
     d.sales_order_detail_id,
     d.product_id,
     h.customer_id,
-    h.sales_person_id,
-    h.territory_id,
 
-    cast(h.order_date as date) as order_date,
+    coalesce(h.sales_person_id, 0) as sales_person_id,
+    coalesce(h.territory_id, 0) as territory_id,
+
+    cast(h.order_date as date) as date_key,
     cast(h.ship_date as date) as ship_date,
 
     d.order_qty,
-    d.unit_price,
-    d.unit_price_discount,
-    d.line_total,
+    cast(d.unit_price as decimal(18,4)) as unit_price,
+    cast(d.unit_price_discount as decimal(18,4)) as unit_price_discount,
+    cast(d.line_total as decimal(18,4)) as line_total,
 
     cast(d.order_qty * d.unit_price as decimal(18,4)) as gross_value,
 
