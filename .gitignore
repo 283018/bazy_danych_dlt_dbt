@@ -11,7 +11,7 @@ wheels/
 
 # Change with your data!
 .dlt
-.dlt/secrets.toml
+# .dlt/secrets.toml
 
 # dlt runtime
 logs
@@ -20,4 +20,4 @@ dbt_packages
 .dbt/.user.yml
 
 # change with your data!
-.dbt/profiles.yml
+# .dbt/profiles.yml
